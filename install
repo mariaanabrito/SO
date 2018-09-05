@@ -1,0 +1,16 @@
+#!/bin/sh
+{
+cd project_files
+make
+cd ..
+mkdir .temp
+mkdir ~/.Backup
+mkdir ~/.Backup/data
+mkdir ~/.Backup/metadata 
+} >/dev/null 2>&1
+{
+mv project_files/server ~/.Backup
+mv project_files/client sobucli
+cp project_files/sobusrv sobusrv
+cp project_files/uninstall uninstall
+} 2>/dev/null && echo "O programa foi instalado com sucesso!" || echo "Um erro ocorreu durante a instalação!"
